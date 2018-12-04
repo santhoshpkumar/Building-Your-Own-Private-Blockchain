@@ -1,0 +1,28 @@
+{
+  "name": "building-your-own-private-blockchain",
+  "version": "1.0.0",
+  "description": "Building your own private blockchain",
+  "main": "simpleChain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santhoshpkumar/Building-Your-Own-Private-Blockchain.git"
+  },
+  "keywords": [
+    "udacity",
+    "blockcahin",
+    "project1"
+  ],
+  "author": "Santhosh Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santhoshpkumar/Building-Your-Own-Private-Blockchain/issues"
+  },
+  "homepage": "https://github.com/santhoshpkumar/Building-Your-Own-Private-Blockchain#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "level": "^4.0.0"
+  }
+}

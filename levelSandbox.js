@@ -34,6 +34,47 @@ function addDataToLevelDB(value) {
         });
 }
 
+// Add block to levelDB with key/value pair
+function addBlockToDB(key,value){
+  return new Promise((resolve, reject) => {
+    db.put(key, value, (error) =>  {
+      if (error){
+        reject(error) }
+      console.log(`Block added ${key}`)
+      resolve(`Block added ${key}`)
+    });
+  })
+}
+
+// Get block from levelDB with key
+function getBlockFromDB(key){
+  return new Promise((resolve, reject) => {
+    db.get(key,(error, value) => {
+      if (error){
+        reject(error)
+      }
+      console.log(`Block requested ${value}`)
+      resolve(value)
+    });
+  })
+}
+
+// Get block height
+function getBlockHeightFromDB() {
+    return new Promise((resolve, reject) => {
+      let height = -1
+
+      db.createReadStream().on('data', (data) => {
+        height++
+      }).on('error', (error) => {
+        reject(error)
+      }).on('close', () => {
+        console.log(`Block Height ${height}`)
+        resolve(height)
+      })
+    })
+}
+
 /* ===== Testing ==============================================================|
 |  - Self-invoking function to add blocks to chain                             |
 |  - Learn more:                                                               |
@@ -52,3 +93,5 @@ function addDataToLevelDB(value) {
     if (--i) theLoop(i);
   }, 100);
 })(10);
+
+module.exports = Block;
